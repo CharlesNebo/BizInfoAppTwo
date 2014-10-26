@@ -8,11 +8,16 @@
 
 #import "MapViewController.h"
 
+
 @interface MapViewController ()
+
 
 @end
 
 @implementation MapViewController
+
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,14 +27,13 @@
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
     
-    _myMapView.showsUserLocation = YES;
-     self.myMapView.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,42 +43,84 @@
 }
 
 
-- (IBAction)zoomClicked:(id)sender
+
+- (IBAction)zoomIn:(id)sender
 {
-    MKUserLocation *userLocation = self.myMapView.userLocation;
+    MKUserLocation *userLocation = self.mapView.userLocation;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(
-    userLocation.location.coordinate, 20000,20000);
+                                                                   userLocation.location.coordinate, 20000,20000);
+    [self.mapView setRegion:region animated:NO];
     
-    [self.myMapView setRegion:region animated:NO];
 }
 
-- (IBAction)mapTypeClicked:(id)sender
+- (IBAction)changeMapType:(UITextField *)sender
 
 {
-    if (self.myMapView.mapType == MKMapTypeStandard)
-        self.myMapView.mapType = MKMapTypeSatellite;
+    
+    if (self.mapView.mapType == MKMapTypeStandard)
+        self.mapView.mapType = MKMapTypeSatellite;
     else
-        self.myMapView.mapType = MKMapTypeStandard;
-
+        self.mapView.mapType = MKMapTypeStandard;
 }
+
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     mapView.centerCoordinate = userLocation.location.coordinate;
 }
 
+- (IBAction)textFieldReturn:(id)sender {
+    [sender resignFirstResponder];
+    [self.mapView removeAnnotations:[self.mapView annotations]];
+    [self performSearch];
+}
 
+- (void) performSearch
+{
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+    request.naturalLanguageQuery = self.searchText.text;
+    request.region = self.mapView.region;
+    
+    self.matchingItems = [[NSMutableArray alloc] init];
+    
+    MKLocalSearch *search = [[MKLocalSearch alloc]initWithRequest:request];
+    
+    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error)
+     {
+         if (response.mapItems.count == 0)
+             
+             NSLog(@"No Matches");
+         else
+             for (MKMapItem *item in response.mapItems)
+             {
+                 [_matchingItems addObject:item];
+                 MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+                 annotation.coordinate = item.placemark.coordinate;
+                 annotation.title = item.name;
+                 [self.mapView addAnnotation:annotation];
+                 
+                 
+                 
+             }
+         
+     }];
+}
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Source Controller = %@", [segue sourceViewController]);
+    NSLog(@"Destination Controller = %@", [segue destinationViewController]);
+    NSLog(@" segue identifier = %@", [segue identifier]);
+    
+    if ([segue.identifier isEqualToString:@"SegueMap"])
+    {
+        MapViewController *detailVC = [segue destinationViewController];
+        detailVC.mapItems = self.matchingItems;
+        
+    }
+    
+    
+}
 
 @end
 

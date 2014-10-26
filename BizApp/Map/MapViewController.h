@@ -9,11 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController<MKMapViewDelegate>
 
-@property (strong, nonatomic) IBOutlet MKMapView *myMapView;
+@interface MapViewController : UIViewController <MKMapViewDelegate, MKAnnotation>
 
-- (IBAction)zoomClicked:(id)sender;
-- (IBAction)mapTypeClicked:(id)sender;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet UITextField *searchText;
+@property (strong, nonatomic) NSMutableArray *matchingItems;
+@property (strong, nonatomic) NSArray *mapItems;
+
+
+
+
+- (IBAction)textFieldReturn:(UITextField *)sender;
+- (IBAction)zoomIn:(id)sender;
+
+- (IBAction)changeMapType:(id)sender;
 
 @end
