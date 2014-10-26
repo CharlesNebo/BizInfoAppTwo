@@ -27,6 +27,7 @@
 		22A8C9FE19FD2F4800EA2987 /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8C9FD19FD2F4800EA2987 /* MapModel.m */; };
 		22A8CA0119FD2F7200EA2987 /* MailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8CA0019FD2F7200EA2987 /* MailViewController.m */; };
 		22A8CA0419FD2F9100EA2987 /* MailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8CA0319FD2F9100EA2987 /* MailModel.m */; };
+		22D15B9319FD81BC004FFFEB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D15B9219FD81BC004FFFEB /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		22A8CA0019FD2F7200EA2987 /* MailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailViewController.m; path = Mail/MailViewController.m; sourceTree = "<group>"; };
 		22A8CA0219FD2F9100EA2987 /* MailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailModel.h; path = Mail/MailModel.h; sourceTree = "<group>"; };
 		22A8CA0319FD2F9100EA2987 /* MailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailModel.m; path = Mail/MailModel.m; sourceTree = "<group>"; };
+		22D15B9219FD81BC004FFFEB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D15B9319FD81BC004FFFEB /* MapKit.framework in Frameworks */,
 				22A8C9BE19FD2A7000EA2987 /* CoreGraphics.framework in Frameworks */,
 				22A8C9C019FD2A7000EA2987 /* UIKit.framework in Frameworks */,
 				22A8C9BC19FD2A7000EA2987 /* Foundation.framework in Frameworks */,
@@ -119,6 +122,7 @@
 		22A8C9BA19FD2A7000EA2987 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22D15B9219FD81BC004FFFEB /* MapKit.framework */,
 				22A8C9BB19FD2A7000EA2987 /* Foundation.framework */,
 				22A8C9BD19FD2A7000EA2987 /* CoreGraphics.framework */,
 				22A8C9BF19FD2A7000EA2987 /* UIKit.framework */,
@@ -516,6 +520,7 @@
 				22A8C9EC19FD2A7000EA2987 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22A8C9ED19FD2A7000EA2987 /* Build configuration list for PBXNativeTarget "BizAppTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +529,7 @@
 				22A8C9EF19FD2A7000EA2987 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
