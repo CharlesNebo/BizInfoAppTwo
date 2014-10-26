@@ -28,6 +28,7 @@
 		22A8CA0119FD2F7200EA2987 /* MailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8CA0019FD2F7200EA2987 /* MailViewController.m */; };
 		22A8CA0419FD2F9100EA2987 /* MailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8CA0319FD2F9100EA2987 /* MailModel.m */; };
 		22D15B9319FD81BC004FFFEB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D15B9219FD81BC004FFFEB /* MapKit.framework */; };
+		22D15B9519FDA740004FFFEB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D15B9419FDA740004FFFEB /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 22A8C9B719FD2A7000EA2987;
 			remoteInfo = BizApp;
+		};
+		22D15B9B19FDA747004FFFEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22D15B9619FDA747004FFFEB /* Mail Demo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2291738419A392C0001F3F9C;
+			remoteInfo = "Mail Demo";
+		};
+		22D15B9D19FDA747004FFFEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22D15B9619FDA747004FFFEB /* Mail Demo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 229173A519A392C1001F3F9C;
+			remoteInfo = "Mail DemoTests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -73,6 +88,8 @@
 		22A8CA0219FD2F9100EA2987 /* MailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailModel.h; path = Mail/MailModel.h; sourceTree = "<group>"; };
 		22A8CA0319FD2F9100EA2987 /* MailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailModel.m; path = Mail/MailModel.m; sourceTree = "<group>"; };
 		22D15B9219FD81BC004FFFEB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		22D15B9419FDA740004FFFEB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		22D15B9619FDA747004FFFEB /* Mail Demo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Mail Demo.xcodeproj"; path = "../../../Desktop/bIzApp Project/Mail Demo/Mail Demo.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D15B9519FDA740004FFFEB /* MessageUI.framework in Frameworks */,
 				22D15B9319FD81BC004FFFEB /* MapKit.framework in Frameworks */,
 				22A8C9BE19FD2A7000EA2987 /* CoreGraphics.framework in Frameworks */,
 				22A8C9C019FD2A7000EA2987 /* UIKit.framework in Frameworks */,
@@ -103,6 +121,7 @@
 		22A8C9AF19FD2A7000EA2987 = {
 			isa = PBXGroup;
 			children = (
+				22D15B9619FDA747004FFFEB /* Mail Demo.xcodeproj */,
 				22A8C9C119FD2A7000EA2987 /* BizApp */,
 				22A8C9E019FD2A7000EA2987 /* BizAppTests */,
 				22A8C9BA19FD2A7000EA2987 /* Frameworks */,
@@ -122,6 +141,7 @@
 		22A8C9BA19FD2A7000EA2987 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22D15B9419FDA740004FFFEB /* MessageUI.framework */,
 				22D15B9219FD81BC004FFFEB /* MapKit.framework */,
 				22A8C9BB19FD2A7000EA2987 /* Foundation.framework */,
 				22A8C9BD19FD2A7000EA2987 /* CoreGraphics.framework */,
@@ -210,6 +230,15 @@
 			name = Mail;
 			sourceTree = "<group>";
 		};
+		22D15B9719FDA747004FFFEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22D15B9C19FDA747004FFFEB /* Mail Demo.app */,
+				22D15B9E19FDA747004FFFEB /* Mail DemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,6 +302,12 @@
 			mainGroup = 22A8C9AF19FD2A7000EA2987;
 			productRefGroup = 22A8C9B919FD2A7000EA2987 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 22D15B9719FDA747004FFFEB /* Products */;
+					ProjectRef = 22D15B9619FDA747004FFFEB /* Mail Demo.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				22A8C9B719FD2A7000EA2987 /* BizApp */,
@@ -280,6 +315,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		22D15B9C19FDA747004FFFEB /* Mail Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Mail Demo.app";
+			remoteRef = 22D15B9B19FDA747004FFFEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		22D15B9E19FDA747004FFFEB /* Mail DemoTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mail DemoTests.xctest";
+			remoteRef = 22D15B9D19FDA747004FFFEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		22A8C9B619FD2A7000EA2987 /* Resources */ = {
